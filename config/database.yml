@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  host: localhost
+  database: gps_collector
+  username: gps_collector
+  password: gps_collector
