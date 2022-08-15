@@ -1,6 +1,6 @@
 Start the application:
 
-To start the application, run `ruby app.rb`
+To start the application, run `bundle i` first and then `ruby app.rb`
 
 
 API Documentation
