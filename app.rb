@@ -20,9 +20,13 @@ get '/geo_points_around_point' do
   longitude = params['longitude']
   latitude = params['latitude']
 
+  if longitude.nil? || latitude.nil? || distance.nil?
+    return "Please provide Longitude, Latitude and Distance"
+  end
+
   # If unit is in feet, conver it to meters
-  if unit && unit == 'feet'
-    distance/=3.28
+  if unit == 'feet'
+    distance = (distance.to_f)/3.28
   end
 
   sql = "SELECT ST_AsText(location) FROM geo_points WHERE ST_DWithin(location::geography, ST_SetSRID(ST_MakePoint(#{longitude},#{latitude}),4326)::geography, #{distance})"
